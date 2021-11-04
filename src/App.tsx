@@ -1,5 +1,6 @@
 import React, { FC } from 'react'
 import { createGlobalStyle } from 'styled-components'
+import { SearchForm } from './components/SearchForm'
 
 const GlobalStyles = createGlobalStyle`
   * {
@@ -16,7 +17,7 @@ export const App: FC = () => {
   return (
     <>
       <GlobalStyles />
-      <div>phrase</div>
+      <SearchForm />
     </>
   )
 }
