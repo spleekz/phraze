@@ -7,6 +7,9 @@ const GlobalStyles = createGlobalStyle`
     padding:0;
     font-family: 'Alegreya Sans SC', sans-serif;
   }
+  body {
+    padding:45px;
+  }
 `
 
 export const App: FC = () => {
