@@ -1,10 +1,11 @@
+import { getRandom } from './getRandom'
 /* eslint-disable no-loop-func */
 export const getUniques = (min: number, max: number, count: number): Array<number> => {
   const uniques: Array<number> = []
   for (let i = 0; i < count; i++) {
-    let number = Math.floor(Math.random() * (max - min + 1)) + min
+    let number = getRandom(min, max)
     while (uniques.length && uniques.some((n) => n === number)) {
-      number = Math.floor(Math.random() * (max - min + 1)) + min
+      number = getRandom(min, max)
     }
     uniques.push(number)
   }
