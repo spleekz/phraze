@@ -11,16 +11,22 @@ const SearchFormContainer = styled.div`
 const FieldsContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  width: 710px;
 `
 const SearchInput = styled.input`
   font-size: 30px;
   padding: 0 0 0 4px;
+  border-radius: 5px;
   &::placeholder {
     font-size: 21px;
   }
 `
 const GenerateButton = styled.button`
-  font-size: 32px;
+  font-size: 28px;
+  font-weight: bold;
+  background-color: #fdfdfd;
+  box-shadow: 0 5px 15px rgb(0 0 0 / 8%);
+  border-radius: 5px;
   padding: 4px;
   &:hover {
     cursor: pointer;
