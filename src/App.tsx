@@ -1,6 +1,9 @@
 import React, { FC } from 'react'
 import { createGlobalStyle } from 'styled-components'
 import { SearchForm } from './components/SearchForm'
+import { useStore } from './stores/RootStore/RootStoreContext'
+import { Phrases } from './components/Phrases'
+import { observer } from 'mobx-react-lite'
 
 const GlobalStyles = createGlobalStyle`
   * {
@@ -13,11 +16,13 @@ const GlobalStyles = createGlobalStyle`
   }
 `
 
-export const App: FC = () => {
+export const App: FC = observer((): JSX.Element => {
+  const { PhrasesStore } = useStore()
   return (
     <>
       <GlobalStyles />
       <SearchForm />
+      {PhrasesStore.customPhrase.length !== 0 && <Phrases />}
     </>
   )
-}
+})
