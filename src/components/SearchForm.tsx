@@ -1,3 +1,4 @@
+import { observer } from 'mobx-react-lite'
 import React, { FC } from 'react'
 import styled from 'styled-components'
 import { useStore } from '../stores/RootStore/RootStoreContext'
@@ -26,17 +27,32 @@ const GenerateButton = styled.button`
   }
 `
 
-export const SearchForm: FC = () => {
+export const SearchForm: FC = observer((): JSX.Element => {
   const { PhrasesStore } = useStore()
+
+  const setNumberOfBlocks = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    const value = Number(e.target.value)
+    if (!isNaN(value)) PhrasesStore.setNumberOfBlocks(value)
+  }
+  const generatePhrase = (): void => {
+    if (
+      PhrasesStore.numberOfBlocks > 0 &&
+      PhrasesStore.numberOfBlocks <= PhrasesStore.maxNumberOfBlocks
+    ) {
+      PhrasesStore.generatePhrase()
+    }
+  }
 
   return (
     <SearchFormContainer>
       <FieldsContainer>
         <SearchInput
           placeholder={`Количество блоков (максимум - ${PhrasesStore.maxNumberOfBlocks})`}
+          value={PhrasesStore.numberOfBlocks === 0 ? '' : PhrasesStore.numberOfBlocks}
+          onChange={setNumberOfBlocks}
         />
-        <GenerateButton>Сгенерировать фразу</GenerateButton>
+        <GenerateButton onClick={generatePhrase}>Сгенерировать фразу</GenerateButton>
       </FieldsContainer>
     </SearchFormContainer>
   )
-}
+})
