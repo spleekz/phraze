@@ -31,7 +31,12 @@ export const Phrases: FC = observer((): JSX.Element => {
     <PhrasesBlock>
       <PhraseList>
         {PhrasesStore.customPhrase.map((phrase) => {
-          return <PhraseBlock key={phrase}>{phrase}</PhraseBlock>
+          return (
+            <>
+              <PhraseBlock key={phrase}>{`${phrase}\n\n`}</PhraseBlock>
+              <br></br>
+            </>
+          )
         })}
       </PhraseList>
       <ButtonContainer>
