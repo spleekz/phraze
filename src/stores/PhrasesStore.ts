@@ -1,3 +1,4 @@
+import { shuffle } from 'lodash'
 import { makeAutoObservable } from 'mobx'
 import { getRandom } from '../utils/getRandom'
 import { getUniques } from '../utils/getUniques'
@@ -217,8 +218,9 @@ export class PhrasesStore implements IPhrasesStore {
   }
   generatePhrase(): void {
     const customPhrase: Array<string> = []
-    const indexesOfBlocks = getUniques(1, this.maxNumberOfBlocks - 1, this.numberOfBlocks - 1)
-    const indexes = [0, ...indexesOfBlocks]
+    const extraBlocks = shuffle([1, 2])
+    const indexesOfBlocks = getUniques(3, this.maxNumberOfBlocks - 1, this.numberOfBlocks - 3)
+    const indexes = [0, ...extraBlocks, ...indexesOfBlocks]
     indexes.forEach((index) => {
       const block = this.phraseBlocks[index]
       const indexOfPhrase = getRandom(0, block.length - 1)
