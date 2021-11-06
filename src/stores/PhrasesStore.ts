@@ -31,12 +31,12 @@ export class PhrasesStore implements IPhrasesStore {
       'В наличии на собственном складе отгрузки',
       'В наличии.',
       'Товар в наличии.',
-      'Собственный склад отгрузки , товар в наличии!',
+      'Собственный склад отгрузки,товар в наличии!',
     ],
     [
       'В наличии несколько разновидностей.',
-      '​Подберем на любую технику !',
-      'Подберем и на другие модели !​',
+      '​Подберем на любую технику!',
+      'Подберем и на другие модели!​',
       'Для подбора запчастей - используем оригинальные каталоги.',
       'Грамотная консультация и всегда точный подбор.',
       'Подберем любую разновидность.',
@@ -214,7 +214,7 @@ export class PhrasesStore implements IPhrasesStore {
     return this.phraseBlocks.length
   }
   get customPhraseString(): string {
-    return this.customPhrase.join('\n')
+    return this.customPhrase.join('\n\n')
   }
 
   setNumberOfBlocks(numberOfBlocks: number): void {
