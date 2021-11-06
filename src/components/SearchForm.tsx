@@ -14,8 +14,9 @@ const FieldsContainer = styled.div`
   width: 710px;
 `
 const SearchInput = styled.input`
-  font-size: 30px;
+  font-size: 29px;
   padding: 0 0 0 4px;
+  border: 2px solid #000000;
   border-radius: 5px;
   &::placeholder {
     font-size: 21px;
@@ -28,6 +29,7 @@ const GenerateButton = styled.button`
   box-shadow: 0 5px 15px rgb(0 0 0 / 8%);
   border-radius: 5px;
   padding: 4px;
+  border: 2px solid #000000;
   &:hover {
     cursor: pointer;
   }
@@ -42,7 +44,7 @@ export const SearchForm: FC = observer((): JSX.Element => {
   }
   const generatePhrase = (): void => {
     if (
-      PhrasesStore.numberOfBlocks > 0 &&
+      PhrasesStore.numberOfBlocks > 5 &&
       PhrasesStore.numberOfBlocks <= PhrasesStore.maxNumberOfBlocks
     ) {
       PhrasesStore.generatePhrase()
