@@ -10,14 +10,17 @@ const GlobalStyles = createGlobalStyle`
     margin:0;
     padding:0;
     box-sizing:border-box;
-    background-color: #f3f3f3;
     font-family: 'Alegreya Sans SC', sans-serif;
   }
   body {
     padding:45px;
+    background-color: #f3f3f3;
   }
-  input,button {
+  input {
     outline: none;
+  }
+  button {
+    border:0;
   }
 `
 const AppContainer = styled.div`
