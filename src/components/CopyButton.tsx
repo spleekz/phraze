@@ -32,7 +32,7 @@ export const CopyButton: FC<CopyButtonProps> = ({ text }): JSX.Element => {
       setFillColor('#3a3a3a')
       setTimeout(() => {
         setIsCopied(false)
-      }, 1500)
+      }, 2000)
     }
   }, [isCopied])
 
