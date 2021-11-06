@@ -10,6 +10,7 @@ export interface IPhrasesStore {
   numberOfBlocks: number
   maxNumberOfBlocks: number
   customPhrase: Array<string>
+  customPhraseString: string
   setNumberOfBlocks(numberOfBlocks: number): void
   generatePhrase(): void
 }
@@ -211,6 +212,9 @@ export class PhrasesStore implements IPhrasesStore {
   numberOfBlocks = 0
   get maxNumberOfBlocks(): number {
     return this.phraseBlocks.length
+  }
+  get customPhraseString(): string {
+    return this.customPhrase.join('\n')
   }
 
   setNumberOfBlocks(numberOfBlocks: number): void {
